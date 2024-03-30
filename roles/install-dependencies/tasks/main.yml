@@ -1,0 +1,33 @@
+---
+- name: "Installing main dependencies"
+  apt:
+    pkg: "{{ main_dependencies }}"
+  become: true
+  become_method: sudo
+
+- name: "Installing Polybar dependencies"
+  apt:
+    pkg: "{{ polybar_dependencies }}"
+  become: true
+  become_method: sudo
+
+- name: "Installing Picom dependencies"
+  apt:
+    pkg: "{{ picom_dependencies }}"
+  become: true
+  become_method: sudo
+
+- name: "Installing Applications"
+  apt:
+    pkg: "{{ applications }}"
+  become: true
+  become_method: sudo
+
+- name: "Making the current user owner of /opt for further installation of packages"
+  file:
+    path: /opt
+    # Assuming User and Group have the same name always
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+  become: true
+  become_method: sudo

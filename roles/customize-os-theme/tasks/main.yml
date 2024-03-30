@@ -1,0 +1,95 @@
+---
+# Initializing
+- name: "Creating .config Directory in /root Folder"
+  file:
+    path: "/root/.config"
+    state: directory
+  become: true
+  become_method: sudo
+
+# bspwm
+- name: "Copying bspwm Config Files to {{ ansible_env.HOME }}/.config/"
+  copy:
+    src: "{{ role_path }}/files/bspwm"
+    dest: "{{ ansible_env.HOME }}/.config"
+
+- name: "Creating {{ ansible_env.HOME }}/.config/bspwm symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.config/bspwm"
+    dest: "/root/.config/bspwm"
+    state: link
+  become: true
+  become_method: sudo
+
+# picom
+- name: "Copying picom Config Files to {{ ansible_env.HOME }}/.config/"
+  copy:
+    src: "{{ role_path }}/files/picom"
+    dest: "{{ ansible_env.HOME }}/.config"
+
+- name: "Creating {{ ansible_env.HOME }}/.config/picom symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.config/picom"
+    dest: "/root/.config/picom"
+    state: link
+  become: true
+  become_method: sudo
+
+# polybar
+- name: "Copying polybar Config Files to {{ ansible_env.HOME }}/.config/"
+  copy:
+    src: "{{ role_path }}/files/polybar"
+    dest: "{{ ansible_env.HOME }}/.config"
+
+- name: "Creating {{ ansible_env.HOME }}/.config/polybar symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.config/polybar"
+    dest: "/root/.config/polybar"
+    state: link
+  become: true
+  become_method: sudo
+
+- name: "Copying polybar extension bin Files to {{ ansible_env.HOME }}/.config/"
+  copy:
+    src: "{{ role_path }}/files/bin"
+    dest: "{{ ansible_env.HOME }}/.config"
+
+- name: "Creating {{ ansible_env.HOME }}/.config/bin symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.config/bin"
+    dest: "/root/.config/bin"
+    state: link
+  become: true
+  become_method: sudo
+
+# rofi
+- name: "Creating Rofi config Directory"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/rofi/themes"
+    recurse: true
+
+- name: "Copying Rofi Nord Theme to {{ ansible_env.HOME }}/.config/rofi/themes"
+  copy:
+    src: "{{ role_path }}/files/nord.rasi"
+    dest: "{{ ansible_env.HOME }}/.config/rofi/themes"
+
+- name: "Creating {{ ansible_env.HOME }}/.config/rofi symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.config/rofi"
+    dest: "/root/.config/rofi"
+    state: link
+  become: true
+  become_method: sudo
+
+# Giving execution permissions to all launcher files
+- name: "Giving Execution Permissions to all Launcher Files"
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    mode: 755
+  loop:
+    - ".config/bspwm/bspwmrc"
+    - ".config/bspwm/scripts/bspwm_resize"
+    - ".config/bin/ethernet_status.sh"
+    - ".config/bin/htb_status.sh"
+    - ".config/bin/htb_target.sh"
+    - ".config/polybar/launch.sh"

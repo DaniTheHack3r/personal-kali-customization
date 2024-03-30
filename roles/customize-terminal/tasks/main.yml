@@ -1,0 +1,79 @@
+---
+# Kitty
+- name: "Copying Kitty Terminal config into {{ ansible_env.HOME }}/.config"
+  copy:
+    src: "{{ role_path }}/files/kitty"
+    dest: "{{ ansible_env.HOME }}/.config"
+
+# Zsh
+- name: "Copying .zshrc config to HOME directory"
+  copy:
+    src: "{{ role_path }}/files/.zshrc"
+    dest: "{{ ansible_env.HOME }}"
+
+- name: "Removing .zshrc config from root directory"
+  file:
+    path: "/root/.zshrc"
+    state: absent
+  become: true
+  become_method: sudo
+
+- name: "Creating .zshrc symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.zshrc"
+    dest: "/root/.zshrc"
+    state: link
+  become: true
+  become_method: sudo
+
+# Installing Zsh Plugins
+- name: "Installing zsh plugins: syntax highlighting and autosuggestions"
+  apt:
+    pkg:
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+  become: true
+  become_method: sudo
+
+- name: "Creating directory for plugin: zsh-sudo"
+  file:
+    path: "/usr/share/zsh-sudo"
+    state: directory
+  become: true
+  become_method: sudo
+
+- name: "Installing zsh plugin: zsh-sudo"
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+    dest: /usr/share/zsh-sudo
+  become: true
+  become_method: sudo
+
+# Powerlevel10k
+- name: "Installing Powerlevel10k"
+  git:
+    repo: "https://github.com/romkatv/powerlevel10k.git"
+    dest: "{{ ansible_env.HOME }}/.powerlevel10k"
+    single_branch: yes
+    version: master
+
+- name: "Creating .powerlevel10k directory symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.powerlevel10k"
+    dest: "/root/.powerlevel10k"
+    state: link
+  become: true
+  become_method: sudo
+
+- name: "Copying .p10k.zsh config to HOME directory"
+  copy:
+    src: "{{ role_path }}/files/.p10k.zsh"
+    dest: "{{ ansible_env.HOME }}"
+
+- name: "Creating .p10k.zsh symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/.p10k.zsh"
+    dest: "/root/.p10k.zsh"
+    state: link
+  become: true
+  become_method: sudo

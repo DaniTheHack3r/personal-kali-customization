@@ -1,0 +1,10 @@
+---
+- name: "Creating sxhkd Directory"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/sxhkd"
+    state: directory
+
+- name: "Copying sxhkdrc into sxhkd Directory"
+  copy:
+    src: "{{ role_path }}/files/sxhkdrc"
+    dest: "{{ ansible_env.HOME }}/.config/sxhkd"

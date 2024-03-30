@@ -1,0 +1,21 @@
+---
+- name: "Cloning Kerbrute repository"
+  git:
+    repo: "https://github.com/ropnop/kerbrute"
+    dest: "/tmp/kerbrute"
+
+- name: "Building Kerbrute"
+  shell: |
+    cd /tmp/kerbrute
+    go build
+
+- name: "Moving Kerbrute to bin"
+  copy:
+    src: "/tmp/kerbrute/kerbrute"
+    dest: "/{{ ansible_env.HOME }}/.local/bin/"
+    mode: 750
+
+- name: "Remove kerbrute temporal directory"
+  file:
+    path: "/tmp/kerbrute"
+    state: "absent"

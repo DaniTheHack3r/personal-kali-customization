@@ -1,0 +1,13 @@
+---
+- name: "Install Wallpapers"
+  copy:
+    src: "{{ role_path }}/files/Wallpapers"
+    dest: "{{ ansible_env.HOME }}/"
+
+- name: "Creating Wallpapers symlink in root directory"
+  file:
+    src: "{{ ansible_env.HOME }}/Wallpapers"
+    dest: "/root/Wallpapers"
+    state: link
+  become: true
+  become_method: sudo

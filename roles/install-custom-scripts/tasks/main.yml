@@ -1,0 +1,17 @@
+---
+- name: "Copying Custom Scripts into /usr/local/bin"
+  copy:
+    src: "{{ role_path }}/files/"
+    dest: "/usr/local/bin/"
+  become: true
+  become_method: sudo
+
+- name: "Giving Execution permissions to Custom Scripts"
+  file:
+    path: "/usr/local/bin/{{ item }}"
+    mode: 755
+  loop:
+    - "screenshot"
+    - "whichSystem.py"
+  become: true
+  become_method: sudo

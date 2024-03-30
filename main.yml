@@ -1,0 +1,16 @@
+---
+- name: "Customizing Kali"
+  hosts: localhost
+  connection: local
+  roles:
+    - role: "roles/install-dependencies"
+    - role: "roles/install-languages-and-environments"
+    - role: "roles/install-tools"
+    - role: "roles/install-os-theme-modifiers"
+    - role: "roles/install-custom-scripts"
+    - role: "roles/install-fonts"
+    - role: "roles/customize-terminal"
+    - role: "roles/customize-os-theme"
+    - role: "roles/configure-tmux"
+    - role: "roles/customize-key-bindings"
+    - role: "roles/install-wallpapers"

@@ -1,0 +1,14 @@
+---
+- name: "Installing Nerd Fonts"
+  copy:
+    src: "{{ role_path }}/files/nerd_fonts/"
+    dest: "/usr/local/share/fonts/"
+  become: true
+  become_method: sudo
+
+- name: "Installing Polybar Fonts"
+  copy:
+    src: "{{ role_path }}/files/polybar_fonts/"
+    dest: "/usr/share/fonts/truetype/"
+  become: true
+  become_method: sudo

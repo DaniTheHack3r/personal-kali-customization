@@ -1,0 +1,41 @@
+---
+# Polybar
+- name: "Cloning Polybar Repository"
+  git:
+    repo: "https://github.com/polybar/polybar"
+    dest: "/tmp/polybar"
+    recursive: true
+
+- name: "Installing Polybar"
+  shell: |
+    cd /tmp/polybar
+    mkdir build
+    cd build
+    cmake ..
+    make -j$(nproc)
+    sudo make install
+
+- name: "Deleting Polybar Installation Files"
+  file:
+    path: "/tmp/polybar"
+    state: absent
+
+# Picom
+
+- name: "Cloning Picom Repository"
+  git:
+    repo: "https://github.com/ibhagwan/picom.git"
+    dest: "/tmp/picom"
+
+- name: "Installing Picom"
+  shell: |
+    cd /tmp/picom
+    git submodule update --init --recursive
+    meson --buildtype=release . build
+    ninja -C build
+    sudo ninja -C build install
+
+- name: "Deleting Picom Installation Files"
+  file:
+    path: "/tmp/picom"
+    state: absent

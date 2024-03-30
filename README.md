@@ -17,6 +17,12 @@ sudo apt full-upgrade -y
 sudo apt install ansible-core
 ```
 
+- Run a command as sudo to cache the sudo authentication, for example:
+
+```
+sudo whoami
+```
+
 - From the root directory of the repository run:
 
 ```

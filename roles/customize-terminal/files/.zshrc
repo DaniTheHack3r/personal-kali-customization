@@ -62,7 +62,7 @@ alias cat='/bin/batcat --paging=never'
 alias catn='cat'
 alias catnl='batcat'
 alias vim='nvim'
-alias chisel="$HOME/go/chisel"
+alias chisel="/opt/chisel"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

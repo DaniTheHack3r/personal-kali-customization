@@ -2,3 +2,18 @@
 - name: "Installing Chisel From Source"
   shell: |
     go install github.com/jpillora/chisel@latest
+
+- name: "Copying Chisel binary to /opt"
+  copy:
+    src: "{{ ansible_env.HOME }}/go/bin/chisel"
+    dest: "/opt/chisel"
+
+- name: "Give Execution Permissions to Chisel binary"
+  file:
+    path: "/opt/chisel"
+    mode: "0755"
+
+- name: "Removing binary from {{ ansible_env.HOME }}/go/bin/chisel"
+  file:
+    path: "{{ ansible_env.HOME }}/go/bin/chisel"
+    state: absent

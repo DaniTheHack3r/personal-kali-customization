@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme ~/.config/polybar/scripts/themes/powermenu_alt.rasi"
+rofi_command="rofi -theme $HOME/.config/polybar/scripts/themes/powermenu_alt.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
@@ -12,7 +12,7 @@ logout=" Logout"
 # Variable passed to rofi
 options="$logout\n$reboot\n$shutdown"
 
-chosen="$(echo -e "$options" | $rofi_command -p "D's Machine" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "$USER's Machine" -dmenu -selected-row 0)"
 case $chosen in
     $shutdown)
         systemctl poweroff

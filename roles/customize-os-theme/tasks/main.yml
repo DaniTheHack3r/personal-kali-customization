@@ -93,3 +93,6 @@
     - ".config/bin/htb_status.sh"
     - ".config/bin/htb_target.sh"
     - ".config/polybar/launch.sh"
+    - ".config/polybar/scripts/launcher"
+    - ".config/polybar/scripts/powermenu"
+    - ".config/polybar/scripts/powermenu_alt"

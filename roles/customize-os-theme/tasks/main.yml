@@ -85,7 +85,7 @@
 - name: "Giving Execution Permissions to all Launcher Files"
   file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
-    mode: 755
+    mode: '0755'
   loop:
     - ".config/bspwm/bspwmrc"
     - ".config/bspwm/scripts/bspwm_resize"

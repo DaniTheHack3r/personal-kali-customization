@@ -130,7 +130,7 @@ super + alt + {Left,Down,Up,Right}
 
 # Firefox
 super + shift + f
-	firejail /opt/firefox/firefox
+	firejail /usr/bin/firefox
 
 # BurpSuite
 super + shift + b

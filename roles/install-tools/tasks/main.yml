@@ -3,3 +3,4 @@
 - include_tasks: nvim.yml
 - include_tasks: chisel.yml
 - include_tasks: vscode.yml
+- include_tasks: firefox.yml

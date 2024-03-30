@@ -42,7 +42,7 @@ bspc config focus_follows_pointer true
 
 
 # WALLPAPER
-feh --bg-fill ~/Wallpaper/kali-red-2.jpg
+feh --bg-fill ~/Wallpapers/kali-red-2.jpg
 
 # POLYBAR
 ~/.config/polybar/launch.sh

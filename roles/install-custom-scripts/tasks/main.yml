@@ -9,7 +9,7 @@
 - name: "Giving Execution permissions to Custom Scripts"
   file:
     path: "/usr/local/bin/{{ item }}"
-    mode: 755
+    mode: '0755'
   loop:
     - "screenshot"
     - "whichSystem.py"

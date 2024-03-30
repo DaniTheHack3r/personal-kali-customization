@@ -1,0 +1,4 @@
+---
+- name: "Installing Chisel From Source"
+  shell: |
+    go install github.com/jpillora/chisel@latest

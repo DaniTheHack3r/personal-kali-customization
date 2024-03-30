@@ -71,3 +71,4 @@ applications:
   - imagemagick
   - cmatrix
   - lsd
+  - gettext

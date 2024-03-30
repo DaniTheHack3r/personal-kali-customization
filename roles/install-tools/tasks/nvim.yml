@@ -1,0 +1,20 @@
+---
+- name: "Cloning nvim Repository"
+  git:
+    repo: "https://github.com/neovim/neovim.git"
+    dest: "/tmp/neovim"
+    single_branch: true
+    version: stable
+
+- name: "Installing nvim"
+  shell: |
+    cd /tmp/neovim
+    make CMAKE_BUILD_TYPE=Release
+    sudo make install
+
+- name: "Removing nvim temporal files"
+  file:
+    path: "/tmp/neovim"
+    state: absent
+  become: true
+  become_method: sudo

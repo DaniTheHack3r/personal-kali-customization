@@ -62,8 +62,8 @@ alias cat='/bin/batcat --paging=never'
 alias catn='cat'
 alias catnl='batcat'
 alias vim='nvim'
-alias chisel="/opt/chisel"
-
+alias chisel='/opt/chisel'
+alias code='code-insiders'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Plugins

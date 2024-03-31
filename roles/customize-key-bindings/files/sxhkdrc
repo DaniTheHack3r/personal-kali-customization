@@ -136,9 +136,9 @@ super + shift + f
 super + shift + b
 	burpsuite
 
-# BurpSuite
+# VS Code
 super + shift + v
-	/usr/bin/code
+	/usr/bin/code-insiders
 
 
 ###############

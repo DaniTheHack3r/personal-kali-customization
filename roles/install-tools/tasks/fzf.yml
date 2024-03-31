@@ -1,0 +1,12 @@
+---
+- name: "Cloning fzf Repository"
+  git:
+    repo: "https://github.com/junegunn/fzf.git"
+    dest: "{{ ansible_env.HOME }}/.fzf"
+    single_branch: true
+    version: master
+
+- name: "Installing fzf"
+  shell: |
+    cd ~/.fzf
+    ./install

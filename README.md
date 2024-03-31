@@ -2,6 +2,12 @@
 
 These are my customization scripts for every time I have to perform a Kali clean install.
 
+## Requirements for the VM
+
+- Space: 60Gi disk
+- Memory: 8Gi
+- Processor: >= 2 cores
+
 ## Steps to install
 
 - From a freshly installed Kali machine, update all packages by running:

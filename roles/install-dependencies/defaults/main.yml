@@ -72,3 +72,4 @@ applications:
   - cmatrix
   - lsd
   - gettext
+  - jq

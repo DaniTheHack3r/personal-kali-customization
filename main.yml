@@ -14,3 +14,4 @@
     - role: "roles/configure-tmux"
     - role: "roles/customize-key-bindings"
     - role: "roles/install-wallpapers"
+    - role: "roles/post-installation-actions"

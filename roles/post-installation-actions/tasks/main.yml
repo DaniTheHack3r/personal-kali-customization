@@ -18,3 +18,18 @@
   become: true
   become_method: sudo
   when: rockyou_txt_exists.stat.exists
+
+# Downloading Wordlists
+- name: "Installing SecLists repository"
+  git:
+    repo: "https://github.com/danielmiessler/SecLists.git"
+    dest: "/usr/share/wordlists/SecLists"
+  become: true
+  become_method: sudo
+
+- name: "Installing Auto_Wordlists repository"
+  git:
+    repo: "https://github.com/carlospolop/Auto_Wordlists.git"
+    dest: /usr/share/wordlists/Auto_Wordlists
+  become: true
+  become_method: sudo

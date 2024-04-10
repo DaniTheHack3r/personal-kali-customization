@@ -7,6 +7,9 @@ These are my customization scripts for every time I have to perform a Kali clean
 - Space: 60Gi disk
 - Memory: 8Gi
 - Processor: >= 2 cores
+- Kali installed with Xfce (default) desktop
+
+**Note**: These scripts work in any other desktop perfectly. However, you must know how to change the desktop to bspwm at the login. Besides that, Xfce is a bit more stable than other desktops in kali.
 
 ## Steps to install
 

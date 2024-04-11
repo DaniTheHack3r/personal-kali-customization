@@ -40,6 +40,6 @@ ansible-playbook main.yml
 
 - When it finishes, restart the virtual machine, and before logging in, check the menu on the right-top corner and select bspwm.
 
-- Login and enjoy!
+- Log in and enjoy!
 
 **Disclaimer**: These Ansible scripts might work on other linux flavors like Parrot, Debian or even Ubuntu, but these scripts haven't been tested on those distros yet.

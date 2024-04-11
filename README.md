@@ -38,7 +38,7 @@ sudo whoami
 ansible-playbook main.yml
 ```
 
-- When it finishes, restart the virtual machine, and before loggin in, check on the menu in the right-top corner and select bspwm.
+- When it finishes, restart the virtual machine, and before logging in, check on the menu in the right-top corner and select bspwm.
 
 - Login and enjoy!
 

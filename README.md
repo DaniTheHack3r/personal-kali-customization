@@ -42,4 +42,4 @@ ansible-playbook main.yml
 
 - Login and enjoy!
 
-**Disclaimer**: These Ansible scripts might work on other linux operative systems like Parrot, Debian or even Ubuntu, but these scripts haven't been tried on those distros.
+**Disclaimer**: These Ansible scripts might work on other linux flavors like Parrot, Debian or even Ubuntu, but these scripts haven't been tested on those distros yet.

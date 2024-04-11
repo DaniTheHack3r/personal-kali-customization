@@ -11,7 +11,7 @@ These are my customization scripts for every time I have to perform a Kali clean
 
 **Note**: These scripts work in any other desktop perfectly. However, you must know how to change the desktop to bspwm at the login. Besides that, Xfce is a bit more stable than other desktops in kali.
 
-## Steps to install
+## Steps to run
 
 - From a freshly installed Kali machine, update all packages by running:
 

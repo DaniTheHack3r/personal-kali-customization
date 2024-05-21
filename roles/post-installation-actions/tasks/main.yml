@@ -5,6 +5,11 @@
     path: "{{ ansible_env.HOME }}/workspace/"
     state: directory
 
+- name: "Creating wordlists directory"
+  file:
+    path: "usr/share/wordlists/"
+    state: directory
+
 # Decompressing rockyou.txt file
 - name: "Checking if rockyou.txt.gz exists"
   stat:

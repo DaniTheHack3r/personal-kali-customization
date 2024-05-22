@@ -5,11 +5,6 @@
     path: "{{ ansible_env.HOME }}/workspace/"
     state: directory
 
-- name: "Creating wordlists directory"
-  file:
-    path: "usr/share/wordlists/"
-    state: directory
-
 # Decompressing rockyou.txt file
 - name: "Checking if rockyou.txt.gz exists"
   stat:
@@ -25,12 +20,18 @@
   when: rockyou_txt_exists.stat.exists
 
 # Downloading Wordlists
+- name: "Checking if /usr/share/wordlists directory exists"
+  stat:
+    path: /usr/share/wordlists/
+  register: wordlists_dir_exists
+
 - name: "Installing SecLists repository"
   git:
     repo: "https://github.com/danielmiessler/SecLists.git"
     dest: "/usr/share/wordlists/SecLists"
   become: true
   become_method: sudo
+  when: wordlists_dir_exists.stat.exists
 
 - name: "Installing Auto_Wordlists repository"
   git:
@@ -38,3 +39,4 @@
     dest: /usr/share/wordlists/Auto_Wordlists
   become: true
   become_method: sudo
+  when: wordlists_dir_exists.stat.exists

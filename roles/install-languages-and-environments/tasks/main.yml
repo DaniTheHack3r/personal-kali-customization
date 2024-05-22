@@ -6,16 +6,25 @@
   become: true
   become_method: sudo
 
-- name: "Installing venv"
-  apt:
-    name: "python3.11-venv"
-    state: present
-  become: true
-  become_method: sudo
-
 - name: "Installing firejail"
   apt:
     name: "firejail"
     state: present
+  become: true
+  become_method: sudo
+
+# Installing Python venv
+- name: "Adding deadsnakes repository for python3.11"
+  apt_repository:
+    repo: 'ppa:deadsnakes/ppa'
+    codename: trusty
+  become: true
+  become_method: sudo
+
+- name: "Installing venv"
+  apt:
+    name: "python3.11-venv"
+    state: present
+    update_cache: true
   become: true
   become_method: sudo

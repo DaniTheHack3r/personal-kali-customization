@@ -10,7 +10,7 @@
   apt:
     name: "apt-transport-https"
     state: present
-    update_cache: yes
+    update_cache: true
   become: true
   become_method: sudo
 

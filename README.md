@@ -13,6 +13,12 @@ These are my customization scripts for every time I have to perform a Kali clean
 
 ## Steps to run
 
+- Clone the repository:
+
+```
+git clone https://github.com/DaniTheHack3r/personal-kali-customization.git
+```
+
 - From a freshly installed Kali machine, update all packages by running:
 
 ```
@@ -32,7 +38,7 @@ sudo apt install ansible-core
 sudo whoami
 ```
 
-- From the root directory of the repository run:
+- From the repository directory run:
 
 ```
 ansible-playbook main.yml

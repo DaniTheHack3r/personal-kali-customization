@@ -6,6 +6,17 @@
   become: true
   become_method: sudo
 
+# Installing Firejail from source
+- name: "Cloning Firejail repository"
+  git:
+    repo: "https://github.com/netblue30/firejail.git"
+    dest: "/tmp/firejail"
+
+- name: "Installing firejail"
+  shell: |
+    cd /tmp/firejail
+    sudo ./configure && make && sudo make install-strip
+
 - name: "Installing firejail"
   apt:
     name: "firejail"

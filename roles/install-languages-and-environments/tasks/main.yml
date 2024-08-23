@@ -17,13 +17,6 @@
     cd /tmp/firejail
     sudo ./configure && make && sudo make install-strip
 
-- name: "Installing firejail"
-  apt:
-    name: "firejail"
-    state: present
-  become: true
-  become_method: sudo
-
 # Installing Python venv
 - name: "Adding deadsnakes repository for python3.11"
   apt_repository:

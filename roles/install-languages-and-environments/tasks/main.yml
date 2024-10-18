@@ -16,19 +16,3 @@
   shell: |
     cd /tmp/firejail
     sudo ./configure && make && sudo make install-strip
-
-# Installing Python venv
-- name: "Adding deadsnakes repository for python3.11"
-  apt_repository:
-    repo: 'ppa:deadsnakes/ppa'
-    codename: trusty
-  become: true
-  become_method: sudo
-
-- name: "Installing venv"
-  apt:
-    name: "python3.11-venv"
-    state: present
-    update_cache: true
-  become: true
-  become_method: sudo

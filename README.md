@@ -43,6 +43,9 @@ sudo whoami
 ```
 ansible-playbook main.yml
 ```
+> [!WARNING]
+>
+> Avoid the use of sudo while running `ansible-playbook` as it will throw several errors as the ansible needs the context from your user, not from root.
 
 - When it finishes, restart the virtual machine, and before logging in, check the menu on the right-top corner and select bspwm.
 

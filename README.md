@@ -15,13 +15,7 @@ These are my customization scripts for every time I have to perform a Kali clean
 >
 > Consider using only one partition for the whole system, this customization is thought for a disposable Virtual Machine and not for a host system. If you are using it for a host system, allocate more storage than the recommended 60GB. 
 
-## Steps to run
-
-- Clone the repository:
-
-```
-git clone https://github.com/DaniTheHack3r/personal-kali-customization.git
-```
+## Steps to customize Kali with this script
 
 - From a freshly installed Kali machine, update all packages by running:
 
@@ -36,17 +30,26 @@ sudo apt full-upgrade -y
 sudo apt install ansible-core
 ```
 
+- Clone the repository:
+
+```
+git clone https://github.com/DaniTheHack3r/personal-kali-customization.git
+
+cd personal-kali-customization
+```
+
 - Run a command as sudo to cache the sudo authentication, for example:
 
 ```
 sudo whoami
 ```
 
-- From the repository directory run:
+- From the personal-kali-customization directory run:
 
 ```
 ansible-playbook main.yml
 ```
+
 > [!WARNING]
 >
 > Avoid the use of sudo while running `ansible-playbook` as it will throw several errors as the ansible needs the context from your user, not from root. In case of doing it so, the next time you run it without sudo, you must make sure to delete any directory created with sudo permissions that could collide with your regular user permissions when creating them. 

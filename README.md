@@ -9,9 +9,11 @@ These are my customization scripts for every time I have to perform a Kali clean
 - Processor: >= 2 cores
 - Kali installed with Xfce (default) desktop
 
-**Note**: Consider using only one partition for the whole system, this customization is thought for a disposable Virtual Machine and not for a host system. If you are using it for a host system, allocate more storage than the recommended 60GB.
-
 **Note**: These scripts work in any other desktop perfectly. However, you must know how to change the desktop to bspwm at the login. Besides that, Xfce is a bit more stable than other desktops in kali.
+
+> [!WARNING]
+>
+> Consider using only one partition for the whole system, this customization is thought for a disposable Virtual Machine and not for a host system. If you are using it for a host system, allocate more storage than the recommended 60GB. 
 
 ## Steps to run
 

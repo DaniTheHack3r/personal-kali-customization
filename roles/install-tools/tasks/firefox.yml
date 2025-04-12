@@ -1,11 +1,4 @@
 ---
-- name: "Removing Default Version of Firefox"
-  apt:
-    name: firefox-esr
-    state: absent
-  become: true
-  become_method: sudo
-
 - name: "Downloading and Installing Keys to Download Firefox"
   shell: |
     wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
@@ -23,3 +16,11 @@
     update_cache: true
   become: true
   become_method: sudo
+
+- name: "Removing Default Version of Firefox"
+  apt:
+    name: firefox-esr
+    state: absent
+  become: true
+  become_method: sudo
+

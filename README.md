@@ -4,7 +4,7 @@ These are my customization scripts for every time I have to perform a Kali clean
 
 > [!WARNING]
 >
-> This customization is mostly in sync with the latest stable version of Kali Linux. Using it with previous versions of Kali Linux is discouraged.
+> This customization is mostly in sync with the latest stable version of Kali Linux. Using it with previous versions is highly discouraged.
 
 ## Requirements for the VM
 

@@ -15,4 +15,6 @@
 - name: "Installing firejail"
   shell: |
     cd /tmp/firejail
-    sudo ./configure && make && sudo make install-strip
+    ./configure && make && make install-strip
+  become: true
+  become_method: sudo

@@ -13,15 +13,18 @@
     cd build
     cmake ..
     make -j$(nproc)
-    sudo make install
+    make install
+  become: true
+  become_method: sudo
 
 - name: "Deleting Polybar Installation Files"
   file:
     path: "/tmp/polybar"
     state: absent
+  become: true
+  become_method: sudo
 
 # Picom
-
 - name: "Cloning Picom Repository"
   git:
     repo: "https://github.com/ibhagwan/picom.git"
@@ -33,9 +36,13 @@
     git submodule update --init --recursive
     meson --buildtype=release . build
     ninja -C build
-    sudo ninja -C build install
+    ninja -C build install
+  become: true
+  become_method: sudo
 
 - name: "Deleting Picom Installation Files"
   file:
     path: "/tmp/picom"
     state: absent
+  become: true
+  become_method: sudo

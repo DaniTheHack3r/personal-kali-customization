@@ -9,8 +9,10 @@
 - name: "Installing nvim"
   shell: |
     cd /tmp/neovim
-    sudo make CMAKE_BUILD_TYPE=Release
-    sudo make install
+    make CMAKE_BUILD_TYPE=Release
+    make install
+  become: true
+  become_method: sudo
 
 - name: "Removing nvim temporal files"
   file:

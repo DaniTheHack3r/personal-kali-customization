@@ -42,16 +42,10 @@ git clone https://github.com/DaniTheHack3r/personal-kali-customization.git
 cd personal-kali-customization
 ```
 
-- Run a command as sudo to cache the sudo authentication, for example:
+- From the root directory of personal-kali-customization you have to run the next command, it will prompt you with the BECOME password, which is your sudo password:
 
 ```
-sudo whoami
-```
-
-- From the personal-kali-customization directory run:
-
-```
-ansible-playbook main.yml
+ansible-playbook main.yml -K
 ```
 
 > [!WARNING]
